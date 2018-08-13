@@ -2,8 +2,8 @@ package com.project.chap02.page;
 
 import java.util.Date;
 
+import com.mutistic.common.utils.DateUtil;
 import com.project.common.BaseMainClass;
-import com.thinker.util.DateUtils;
 
 
 /**
@@ -19,7 +19,7 @@ public class P30_HelloDate extends BaseMainClass {
 		// TODO Auto-generated method stub
 		try {
 			System.out.print("Hello，当前时间是：");
-			System.out.print(DateUtils.format(new Date()));
+			System.out.print(DateUtil.format(new Date()));
 			
 			println("\n\n【小结：" +
 					"\n1、CMD相关命令：" +

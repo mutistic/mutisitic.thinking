@@ -1,4 +1,4 @@
-package com.thinker.util;
+package com.mutistic.common.utils;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

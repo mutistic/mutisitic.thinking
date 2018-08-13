@@ -3,9 +3,10 @@ package com.project.common;
 
 import java.util.Date;
 
-import com.thinker.common.CommonEnums.Scale;
-import com.thinker.util.DateUtils;
-import com.thinker.util.ValidateUtils;
+import com.mutistic.common.enums.DateFromatEnum;
+import com.mutistic.common.enums.ScaleEnum;
+import com.mutistic.common.utils.DateUtil;
+import com.mutistic.common.utils.ValidateUtil;
 
 /**
  * <p>功能描述：Main()可执行类的公共继承类-用于提供部分公共方法 </p> 
@@ -44,7 +45,7 @@ public class BaseMainClass {
 	 * @param _msg
 	 */
 	public static void println(Object... _msg) {
-		if(ValidateUtils.isEmpty(_msg)){
+		if(ValidateUtil.isEmpty(_msg)){
 			return;
 		}
 		
@@ -86,44 +87,44 @@ public class BaseMainClass {
 				}
 	
 				
-				if(_scale == Scale.Binary._value) 
+				if(_scale == ScaleEnum.Binary.getKey()) 
 					printMsg += "【toBinaryString("+conver + _msg +") = "+ Integer.toBinaryString(number) +"】";
-				else if(_scale == Scale.Octal._value)   
+				else if(_scale == ScaleEnum.Octal.getKey())   
 					printMsg += "【toOctalString("+conver + _msg +") = "+ Integer.toOctalString(number) +"】";
-				else if(_scale == Scale.Decimal._value) 
+				else if(_scale == ScaleEnum.Decimal.getKey()) 
 					printMsg += "【toString("+conver + _msg +") = "+ Integer.toString(number) +"】";
-				else if(_scale == Scale.Hex._value) 
+				else if(_scale == ScaleEnum.Hex.getKey()) 
 					printMsg += "【toHexString("+conver + _msg +") = "+ Integer.toHexString(number) +"】";
 				
 			} else if(_number.getClass() == Long.class){
 				/** long型数据 - 进制转换 **/
 				long number = (long)_number;
 	
-				if(_scale == Scale.Binary._value) 
+				if(_scale == ScaleEnum.Binary.getKey()) 
 					printMsg += "【toBinaryString("+ _msg +") = "+ Long.toBinaryString(number) +"】";
-				else if(_scale == Scale.Octal._value)   
+				else if(_scale == ScaleEnum.Octal.getKey())   
 					printMsg += "【toOctalString("+ _msg +") = "+ Long.toOctalString(number) +"】";
-				else if(_scale == Scale.Decimal._value) 
+				else if(_scale == ScaleEnum.Decimal.getKey()) 
 					printMsg += "【toString("+ _msg +") = "+ Long.toString(number) +"】";
-				else if(_scale == Scale.Hex._value) 
+				else if(_scale == ScaleEnum.Hex.getKey()) 
 					printMsg += "【toHexString("+ _msg +") = "+ Long.toHexString(number) +"】";
 				
 			} else if(_number.getClass() == Double.class){
 				/** double型数据 - 进制转换 **/
 				double number = (double)_number;
 	
-				if(_scale == Scale.Decimal._value) 
+				if(_scale == ScaleEnum.Decimal.getKey()) 
 					printMsg += "【toString("+ _msg +") = "+ Double.toString(number) +"】";
-				else if(_scale == Scale.Hex._value) 
+				else if(_scale == ScaleEnum.Hex.getKey()) 
 					printMsg += "【toHexString("+ _msg +") = "+ Double.toHexString(number) +"】";
 				
 			} else if(_number.getClass() == Float.class){
 				/** float型数据 - 进制转换 **/
 				float number = (float)_number;
 	
-				if(_scale == Scale.Decimal._value) 
+				if(_scale == ScaleEnum.Decimal.getKey()) 
 					printMsg += "【toString("+ _msg +") = "+ Float.toString(number) +"】";
-				else if(_scale == Scale.Hex._value) 
+				else if(_scale == ScaleEnum.Hex.getKey()) 
 					printMsg += "【toHexString("+ _msg +") = "+ Float.toHexString(number) +"】";
 				
 			}
@@ -171,7 +172,7 @@ public class BaseMainClass {
 	 * @throws Exception
 	 */
 	public static String getMilliSecond() throws Exception {
-		return DateUtils.formatDate(new Date(), "HH:mm:ss.SSSS");
+		return DateUtil.formatDate(new Date(), DateFromatEnum.MILLI_SECOND);
 	}
 	
 	
@@ -218,7 +219,7 @@ public class BaseMainClass {
 		return longNumber;
 		
 //		生成一个正随机数思想：
-//		1、Math.random()用于生成一个范围在[0, 1)的正随机小数。Math.pow(10, length);用于将double转换成相对应长度的long型。该点需考虑Long.MAX_VALUE = 0x7fffffffffffffffL
+//		1、Math.random()用于生成一个范围在[0, 1)的正随机小数。Math.pow(10, length);用于将double转换成相对应长度的long型。该点需考虑Long.MAXgetKey() = 0x7fffffffffffffffL
 //		2、可以采用java.util.Random 类的 nextLong(); 方法生成一个随机数，然后使用 Math.abs(long); 取绝对值。 nextInt() 对应 Matb.abs(int);
 //		3、可以采用java.util.Random 类的  nextInt(int); 方法生成一个范围在[0, int)的正随机数。
 //		4、可以直接使用java.util.Random 的 Random(long); 构造函数，next方法将会生成一个正随机数，此构造函数内部调用 setSeed(long); 方法 。该点多个相同随机种子的Random对象的 next 方法生成的规律是固定的。

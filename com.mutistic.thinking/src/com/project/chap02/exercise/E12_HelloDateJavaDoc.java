@@ -5,7 +5,7 @@ import static com.project.common.BaseMainClass.*;
 
 import java.util.Date;
 
-import com.thinker.util.DateUtils;
+import com.mutistic.common.utils.DateUtil;
 
 
 /**
@@ -21,7 +21,7 @@ public class E12_HelloDateJavaDoc {
 		// TODO Auto-generated method stub
 		try {
 			System.out.print("Hello，当前时间是：");
-			System.out.print(DateUtils.format(new Date()));
+			System.out.print(DateUtil.format(new Date()));
 			
 			println("\n\n【小结：" +
 					"\n生成JavaDoc文档步骤：" +
